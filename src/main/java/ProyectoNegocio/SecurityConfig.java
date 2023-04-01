@@ -43,14 +43,13 @@ public class SecurityConfig {
             throws Exception {
         http
                 .authorizeHttpRequests((requests) -> requests
+                .requestMatchers(                      
+                        "/errores/**",
+                        "/error",
+                        "/webjars/**").permitAll()
                 .requestMatchers(
                         "/",
                         "/index",
-                        "/errores/**",
-                        "/error",
-                        "/carrito/agregar",
-                        "/webjars/**").permitAll()
-                .requestMatchers(
                         "/inventario/nuevo",
                         "/inventario/modificar/**",
                         "/inventario/eliminar/**",
