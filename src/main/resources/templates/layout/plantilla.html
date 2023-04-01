@@ -1,13 +1,14 @@
-<!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
+
 <html >
-    <head>
-        <title>TODO supply a title</title>
+    <head th:fragment="head">
+        <title>Negocio</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       
+       <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script><script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+        
     </head>
     <body>
         <header th:fragment="header" class="header">
