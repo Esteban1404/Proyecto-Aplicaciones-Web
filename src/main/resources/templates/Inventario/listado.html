@@ -1,65 +1,63 @@
-<!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>TODO supply a title</title>
+        <title>Inventario Food Paradise</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     </head>
+    <header th:replace="layout/plantilla :: header"/>
     <body>
 
-        <header th:replace="layout/plantilla :: header"/>
+
         <div class="contenido">
 
-            <h2>Lista de Clientes</h2>
+            <h2>Inventario Disponible</h2>
 
-            <a th:href="@{/inventario/nuevo}">Nuevo Item</a>
+           
             <div th:if="${inventarios != null and !inventarios.empty}">
 
-                <table border="1">
+                <table class="table table-bondered">
 
                     <thead>
+                        <tr>
 
-                    <th>Nombre</th>
-                    <th>Descripcion</th>
-                    <th>Precio</th>
-                    <th>Activo</th>           
-                    <th colspan="2">Acciones</th>
-
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Descripcion</th>
+                            <th scope="col">Precio</th>       
+                            <th scope="col">Activos</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
                     </thead>
                     <tbody>
                         <tr th:each="item : ${inventarios}">
-
                             <td th:text="${item.nombre}"></td>
                             <td th:text="${item.descripcion}"></td>
                             <td th:text="${#numbers.formatDecimal(item.precio,3,2)}"></td>
-                            
-
-
-                            <td><a th:href="@{/inventario/modificar/}+${item.idInventario}">Modificar</a></td>
-                            <td><a th:href="@{/inventario/eliminar/}+${item.idInventario}">Eliminar</a></td>
-
+                            <td><a class="btn btn-light" th:href="@{/inventario/modificar/}+${item.idInventario}">Modificar</a></td>
+                            <td><a class="btn btn-dark" th:href="@{/inventario/eliminar/}+${item.idInventario}">Eliminar</a></td>
                         </tr>
+
 
 
                     </tbody>
 
 
                 </table>
+                
+                  <div class="d-grid gap-2 col-6 mx-auto">
+                   <a class="btn btn-primary" th:href="@{/inventario/nuevo}">Agregar Nuevo Inventario</a>
+                
+            </div>
+            <div th:if="${inventarios== null or inventarios.empty}">
 
-                <div th:if="${inventarios== null or inventarios.empty}">
+                La lista esta vacia...
 
-                    La lista esta vacia...
-
-                </div>
+            </div>
 
 
 
-                <footer  th:replace="layout/plantilla 
-                         :: footer"/> 
-                </body>
+            <footer  th:replace="layout/plantilla 
+                     :: footer"/> 
+    </body>
 </html>
 

@@ -1,32 +1,183 @@
 
 <html >
     <head th:fragment="head">
-        <title>Negocio</title>
+        <title>Food Paradise</title>
         <meta charset="UTF-8">
-       
-       <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
         <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
         <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
         <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script><script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-        
+
     </head>
     <body>
         <header th:fragment="header" class="header">
-            
-            <nav class="nav">
-                <a th:href="@{/}" class="logo nav-link">Techshop</a>
-                <ul class="nav-menu"> 
-                    <li class="nav-menu-item"><a class="nav-menu-link nav-link" th:href="@{/cliente/listado}">Clientes</a></li>
-                    <li class="nav-menu-item"><a class="nav-menu-link nav-link" th:href="@{/inventario/listado}">Inventario</a></li>
-                    <li class="nav-menu-item"><a class="nav-menu-link nav-link" th:href="@{/carrito/listado}">Carrito de Compras</a></li>
-                   
-            </nav>
-            
+
+
+            <html>
+                <head>
+                    <meta charset="utf-8">
+                    <title>Web Food Paradise</title>    
+
+
+                    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+                </head>
+                <body>
+
+
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+
+                        <div class="container-fluid">
+
+
+                            <a class="navbar-brand" th:href="@{/}">Food Paradise</a>
+
+
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+
+
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+                                <ul id="my-ul" class="ms-auto navbar-nav">
+
+
+                                    <li class="nav-menu-item">
+                                        <a class="nav-menu-link nav-link" th:href="@{/cliente/listado}">Clientes</a>
+                                    <li class="nav-menu-item">
+                                        <a class="nav-menu-link nav-link" th:href="@{/inventario/listado}">Inventarios</a>
+                                    </li>
+
+                                    <li class="nav-menu-item">
+                                        <a class="nav-menu-link nav-link" hth:hrefref="@{/carrito/listado}">Carrito de Compras</a>
+                                    </li>          
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                    </nav>
+
+
+
+
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+                </body>
+
+            </html>
         </header>
-        <footer th:fragment="footer" class="footer">
-            
-            <p>&COPY; Derechos Reservados 2023</p>
-            
+
+        <footer class="text-center text-lg-start bg-blue text-muted">
+
+            <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+
+                <div class="me-5 d-none d-lg-block">
+                    <span> </span>
+                </div>
+
+                <div>
+                    <a href="" class="me-4 link-secondary">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="" class="me-4 link-secondary">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="" class="me-4 link-secondary">
+                        <i class="fab fa-google"></i>
+                    </a>
+                    <a href="" class="me-4 link-secondary">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="" class="me-4 link-secondary">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="" class="me-4 link-secondary">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+
+            </section>
+
+            <section class="">
+                <div class="container text-center text-md-start mt-5">
+
+                    <div class="row mt-3">
+
+                        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+
+                            <h6 class="text-uppercase fw-bold mb-4">
+                                <i class="fas fa-gem me-3 text-secondary"></i>Soda Food Paradise
+                            </h6>
+                            <p>
+                                Emprendimiento de comida rapida 
+                                donde podras degustar tu paladar a otro nivel
+                            </p>
+                        </div>
+
+                        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+
+                            <h6 class="text-uppercase fw-bold mb-4">
+                                Productos
+                            </h6>
+                            <p>
+                                <a href="#!" class="text-reset">Food Paradise</a>
+                            </p>
+                            <p>
+                                <a href="#!" class="text-reset">Menu</a>
+                            </p>
+                            <p>
+                                <a href="#!" class="text-reset">Promociones</a>
+                            </p>
+
+                        </div>
+
+                        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                            <!-- Links -->
+                            <h6 class="text-uppercase fw-bold mb-4">
+                                Redes Sociales
+                            </h6>
+                            <p>
+                                <a href="#!" class="text-reset">Facebook</a>
+                            </p>
+                            <p>
+                                <a href="#!" class="text-reset">WhatsApp</a>
+                            </p>
+                            <p>
+                                <a href="#!" class="text-reset">Instagram</a>
+                            </p>
+                        </div>
+
+                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+                            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+                            <p><i class="fas fa-home me-3 text-secondary"></i> San Rafael Abajo, Desamparados, CRC</p>
+                            <p>
+                                <i class="fas fa-envelope me-3 text-secondary"></i>
+                                info@foodparadise.com
+                            </p>
+                            <p><i class="fas fa-phone me-3 text-secondary"></i> + 506 89325563</p>
+                            <p><i class="fas fa-print me-3 text-secondary"></i> + 506 22756962</p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+
+
+            <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);">
+                © 2023 Copyright: Soda Food Paradise
+
+            </div>
+
         </footer>
-    </body>
+
+    <body/>
 </html>
