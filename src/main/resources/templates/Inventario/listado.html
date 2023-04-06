@@ -1,10 +1,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <title>Inventario Food Paradise</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    </head>
+   <head th:replace="layout/plantilla :: head"> 
+       <title>Inventario</title> 
+   </head>
     <header th:replace="layout/plantilla :: header"/>
     <body>
 
@@ -12,12 +9,16 @@
         <div class="contenido">
 
             <h2>Inventario Disponible</h2>
-
+            
+            
            
             <div th:if="${inventarios != null and !inventarios.empty}">
+                
+                <form method="POST" th:action="@{inventario/nuevo}" th:object="${inventario}">
 
                 <table class="table table-bondered">
 
+                    
                     <thead>
                         <tr>
 
@@ -33,6 +34,7 @@
                             <td th:text="${item.nombre}"></td>
                             <td th:text="${item.descripcion}"></td>
                             <td th:text="${#numbers.formatDecimal(item.precio,3,2)}"></td>
+                            
                             <td><a class="btn btn-light" th:href="@{/inventario/modificar/}+${item.idInventario}">Modificar</a></td>
                             <td><a class="btn btn-dark" th:href="@{/inventario/eliminar/}+${item.idInventario}">Eliminar</a></td>
                         </tr>
@@ -48,6 +50,7 @@
                    <a class="btn btn-primary" th:href="@{/inventario/nuevo}">Agregar Nuevo Inventario</a>
                 
             </div>
+                </form>
             <div th:if="${inventarios== null or inventarios.empty}">
 
                 La lista esta vacia...
