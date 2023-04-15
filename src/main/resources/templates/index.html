@@ -1,5 +1,5 @@
 
-<html  xmlns:th="http://www.thymeleaf.org">
+<!--<html  xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
@@ -56,4 +56,84 @@
         <footer  th:replace="layout/plantilla 
                  :: footer"/> 
     </body>
+</html>-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://wwww.thymeleaf.org" 
+      xmlns:sec="http://thymeleaft.org/extras/spring-security">
+    <head th:replace="layout/plantilla :: head">
+        <title>Food Paradise</title>
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: header"/>
+
+
+
+        <div class="container ">  
+
+            
+            <div class="row align-items-center" >
+
+
+                <div class=" col-4 " >
+
+                    <figure class="text-center">
+                        <blockquote class="blockquote">
+                            <p style="color:blue; ">MENU</p>
+                        </blockquote>
+                        <figcaption class="blockquote-footer">
+                            <cite title="Source Title">Food Paradise</cite>
+                        </figcaption>
+                    </figure>
+                   
+
+                    <figure>
+                        <img src="https://img.freepik.com/vector-gratis/diseno-grafico-logo-menu_24908-54835.jpg?size=626&ext=jpg&ga=GA1.1.1340943475.1681510242&semt=ais" 
+                             class="border border-warning rounded" alt="Negocio"  width="500" height="450" />
+                    </figure>
+
+                </div >
+                <div class="col-2">
+                    
+                </div>
+
+
+                <div class="col-6 align-items-center " >  
+                    
+                    <div class="row row-cols-2  g-5" th:if="${inventarios != null and !inventarios.empty}">
+
+                        <div class="card " style="background-color:ghostwhite;" th:each="inventario : ${inventarios}" >
+
+                            <div class="card-body  ">
+                                <h4 class="card-title fw-bolder">[[${inventario.nombre}]]</h4>
+                                <h6 class="card-title fw-normal">[[${inventario.descripcion}]]</h5>
+                                    <h7 class="card-subtitle mb-2 text-muted text-end">¢[[${#numbers.formatDecimal(inventario.precio, 1, 'DEFAULT', 2, 'DEFAULT')}]]
+                                    </h7>
+                                    <figure>
+
+                                        <figCaption>
+
+                                            <a class="btn btn-primary bi bi-cart-plus" href="/carrito/agregar" role="button" >Agregar</a>
+                                           
+                                        </figcaption>
+
+                                    </figure>
+
+
+                            </div>
+                        </div>                
+                    </div>
+
+
+
+                </div>
+
+                <div th:if="${inventarios == null or inventarios.empty}"  th:text=>
+                    No tenemos lista de inventarios que mostrar...
+                </div>
+
+                <footer th:replace="layout/plantilla :: footer"/>
+            </div>
+        </div>
+    </body>
 </html>
+
