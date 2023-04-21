@@ -1,66 +1,82 @@
 <html xmlns:th="http://www.thymeleaf.org">
-   <head th:replace="layout/plantilla :: head"> 
-       <title>Inventario</title> 
-   </head>
+    <head th:replace="layout/plantilla :: head"> 
+        <title>Inventario</title> 
+    </head>
     <header th:replace="layout/plantilla :: header"/>
     <body>
 
 
-        <div class="contenido">
-
-            <h2>Inventario Disponible</h2>
+        <div class="contenido, text-center"></br>
+            <h2>INVENTARIO DISPONIBLE</h2>
+            </br>
             
-            
-           
-            <div th:if="${inventarios != null and !inventarios.empty}">
-                
-                <form method="POST" th:action="@{inventario/nuevo}" th:object="${inventario}">
 
-                <table class="table table-bondered">
+            <div class="container">
+                <div class="row">
+                    <div class="col-3">
 
-                    
-                    <thead>
-                        <tr>
+                    </div>
+                    <div class="col-6"> 
 
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Descripcion</th>
-                            <th scope="col">Precio</th>       
-                            <th scope="col">Activos</th>
-                            <th scope="col">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr th:each="item : ${inventarios}">
-                            <td th:text="${item.nombre}"></td>
-                            <td th:text="${item.descripcion}"></td>
-                            <td th:text="${#numbers.formatDecimal(item.precio,3,2)}"></td>
-                            
-                            <td><a class="btn btn-light" th:href="@{/inventario/modificar/}+${item.idInventario}">Modificar</a></td>
-                            <td><a class="btn btn-dark" th:href="@{/inventario/eliminar/}+${item.idInventario}">Eliminar</a></td>
-                        </tr>
+                        <div th:if="${inventarios != null and !inventarios.empty}">
+
+                            <form method="POST" th:action="@{inventario/nuevo}" th:object="${inventario}">
+
+                                <table class="table table-bondered">
 
 
+                                    <thead>
+                                        <tr>
 
-                    </tbody>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Descripcion</th>
+                                            <th scope="col">Precio</th>       
+                                            <th scope="col">Activos</th>
+                                            <th scope="col">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="item : ${inventarios}">
+                                            <td th:text="${item.nombre}"></td>
+                                            <td th:text="${item.descripcion}"></td>
+                                            <td th:text="${#numbers.formatDecimal(item.precio,3,2)}"></td>
 
-
-                </table>
-                
-                  <div class="d-grid gap-2 col-6 mx-auto">
-                   <a class="btn btn-primary" th:href="@{/inventario/nuevo}">Agregar Nuevo Inventario</a>
-                
-            </div>
-                </form>
-            <div th:if="${inventarios== null or inventarios.empty}">
-
-                La lista esta vacia...
-
-            </div>
+                                            <td><a class="btn btn-light" th:href="@{/inventario/modificar/}+${item.idInventario}">Modificar</a></td>
+                                            <td><a class="btn btn-dark" th:href="@{/inventario/eliminar/}+${item.idInventario}">Eliminar</a></td>
+                                        </tr>
 
 
 
-            <footer  th:replace="layout/plantilla 
-                     :: footer"/> 
-    </body>
-</html>
+                                    </tbody>
+
+
+                                </table>
+
+                                <div class="d-grid gap-2 col-6 mx-auto">
+                                    <a class="btn btn-primary" th:href="@{/inventario/nuevo}">Agregar Nuevo Inventario</a>
+
+                                </div>
+                                <div class="col-3">
+
+                                </div>
+
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div th:if="${inventarios== null or inventarios.empty}">
+
+                    La lista esta vacia...
+
+                </div>
+
+
+
+                <footer  th:replace="layout/plantilla 
+                         :: footer"/> 
+                </body>
+                </html>
 

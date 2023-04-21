@@ -1,64 +1,86 @@
-<!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>TODO supply a title</title>
+        <title>Food Paradise</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
 
         <header th:replace="layout/plantilla :: header"/>
-        <div class="contenido">
+        <div class="contenido, text-center" > </br>
 
-            <h2>Lista de Clientes</h2>
+            <h2>LISTA DE CLIENTES</h2>
 
-            <a th:href="@{/cliente/nuevo}">Nuevo Cliente</a>
-            <div th:if="${clientes != null and !clientes.empty}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-3">
 
-                <table border="1">
-
-                    <thead>
-
-                    <th>Nombre</th>
-                    <th>Apellidos</th>
-                    <th>Correo</th>
-                    <th>Telefono</th>           
-                    <th colspan="2">Acciones</th>
-
-                    </thead>
-                    <tbody>
-                        <tr th:each="item : ${clientes}">
-
-                            <td th:text="${item.nombre}"></td>
-                            <td th:text="${item.apellidos}"></td>
-                            <td th:text="${item.correo}"></td>
-                            <td th:text="${item.telefono}"></td>
+                    </div>
+                    <div class="col-6"> 
 
 
-                            <td><a th:href="@{/cliente/modificar/}+${item.idCliente}">Modificar</a></td>
-                            <td><a th:href="@{/cliente/eliminar/}+${item.idCliente}">Eliminar</a></td>
+                        <div th:if="${clientes != null and !clientes.empty}">
+                            </br>
+                            </br>
+                            </br>
+                            </br>
+                            <table border="1">
 
-                        </tr>
+                                <table class="table table-bondered">
+
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>Apellidos</th>
+                                            <th>Correo</th>
+                                            <th>Telefono</th>           
+                                            <th colspan="2">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="item : ${clientes}">
+
+                                            <td th:text="${item.nombre}"></td>
+                                            <td th:text="${item.apellidos}"></td>
+                                            <td th:text="${item.correo}"></td>
+                                            <td th:text="${item.telefono}"></td>
 
 
-                    </tbody>
+                                            <td><a class="btn btn-light" th:href="@{/cliente/modificar/}+${item.idCliente}">Modificar</a></td>
+                                            <td><a class="btn btn-dark" th:href="@{/cliente/eliminar/}+${item.idCliente}">Eliminar</a></td>
+
+                                        </tr>
 
 
-                </table>
+                                    </tbody>
 
-                <div th:if="${clientes== null or clientes.empty}">
 
-                    La lista esta vacia...
+                                </table>
+                                <div class="d-grid gap-2 col-6 mx-auto">
+                                    <a class="btn btn-primary" th:href="@{/cliente/nuevo}">Nuevo cliente</a>
 
+                                </div>
+
+                                <div class="col-3">
+
+                                </div>
+
+                                <div th:if="${clientes== null or clientes.empty}">
+
+                                    La lista esta vacia...
+
+                                </div>
+
+
+
+                        </div>
+
+                    </div>
                 </div>
+            </div>
 
 
-
-                <footer  th:replace="layout/plantilla 
-                         :: footer"/> 
-                </body>
+            <footer  th:replace="layout/plantilla 
+                     :: footer"/> 
+    </body>
 </html>
