@@ -25,7 +25,7 @@ public class InventarioController {
         model.addAttribute("inventarios", inventarios);  //Traer lista de inventarios
 
         return "/inventario/listado";
-    }
+    }                      
 
     @GetMapping("/inventario/nuevo")
     public String nuevoInventario(Inventario inventario,Model model) {

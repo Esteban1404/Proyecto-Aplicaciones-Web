@@ -34,11 +34,11 @@
 
 
 
-                            <a class="navbar-brand text-info" th:href="@{/}"><h3>Food Paradise</h3></a>                              
+                            <a class="navbar-brand text-light" th:href="@{/}"><h3><strong>Food</strong> <strong class="text-info">Paradise</strong></h3></a>                              
+                            
 
-
-                             <form method="POST" th:action="@{/logout}">
-                                <a href="#" onclick="this.parentNode.submit();" class="nav-link btn btn-info">
+                            <form method="POST" th:action="@{/logout}">
+                                <a href="#" onclick="this.parentNode.submit();" class="text-dark btn btn-light">
                                     <i class="fas fa-user-times">[[#{plantilla.logout}]]</i> 
 
                                 </a>

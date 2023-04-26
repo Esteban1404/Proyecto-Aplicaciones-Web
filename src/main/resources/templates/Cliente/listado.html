@@ -1,5 +1,5 @@
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
+    <head th:replace="layout/plantilla :: head">
         <title>Food Paradise</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +7,7 @@
     <body style="background-image: url(https://img.freepik.com/foto-gratis/hamburguesa-explosiva-verduras-queso-derretido-sobre-fondo-negro-ia-generativa_157027-1734.jpg?w=1060&t=st=1682389875~exp=1682390475~hmac=a452746638c3a68eb4ac3766468b2d35b4f598e4a1c751c1b01e8eecb7f7445e) ;  height: 100%;">
 
         <header th:replace="layout/plantilla :: header"/>
+        
         <div class="contenido, text-center" > </br>
 
             <h2 class="text-white">[[#{cliente.lista}]]</h2>
