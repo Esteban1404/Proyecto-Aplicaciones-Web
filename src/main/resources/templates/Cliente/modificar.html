@@ -6,10 +6,11 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body>
+    <body style="background-image: url(https://img.freepik.com/foto-gratis/hamburguesa-explosiva-verduras-queso-derretido-sobre-fondo-negro-ia-generativa_157027-1734.jpg?w=1060&t=st=1682389875~exp=1682390475~hmac=a452746638c3a68eb4ac3766468b2d35b4f598e4a1c751c1b01e8eecb7f7445e) ;  height: 100%;">
         <header th:replace="layout/plantilla :: header"/>
 
         <a th:href="@{/cliente/listado}" class="link-warning">Regresar</a>
+
         <div class="contenido, text-center">
             </br>
             <div class="container">
@@ -17,8 +18,8 @@
                     <div class="col-3">
 
                     </div>
-                    <div class="col-6"> 
-                        <h2>DATOS DEL CLIENTE</h2>
+                    <div class="col-6 text-white"> 
+                        <h2 class="">[[#{cliente.datos}]]</h2>
 
                         <br />
                         <br />
@@ -30,31 +31,31 @@
                             <input type="hidden"name="idCliente" th:field="*{idCliente}" />
 
                             <div class="form-group">
-                                <label for="nombre">Nombre del Cliente</label> <br/>
+                                <label for="nombre">[[#{cliente.nombre}]]</label> <br/>
                                 <input type="text"class="form-control" id="nombre" name="nombre" th:field="*{nombre}"
                                        placeholder="Ingrese el nombre del cliente">
                             </div>
 
                             <div class="form-group">
-                                <label for="apellidos">Apellidos:</label> <br/>
+                                <label for="apellidos">[[#{cliente.apellidos}]]</label> <br/>
                                 <input type="text" class="form-control" id="apellidos" name="apellidos" th:field="*{apellidos}"
                                        placeholder="Apellidos">
                             </div>
 
                             <div class="form-group">
-                                <label for="telefono">Teléfono:</label><br/>
+                                <label for="telefono">[[#{cliente.telefono}]]</label><br/>
                                 <input type="text" class="form-control" id="correo" name="apellidos" th:field="*{telefono}"
                                        placeholder="Teléfono">
                             </div>
 
                             <div class="form-group">
-                                <label for="correo">Correo:</label><br/>
+                                <label for="correo">[[#{cliente.correo}]]</label><br/>
                                 <input type="email" class="form-control" id="correo" name="correo" th:field="*{correo}"
                                        placeholder="Correo">
                             </div>
 
                             <div class="form-group">
-                                <label for="contraseña">Contraseña</label> <br/>
+                                <label for="contraseña">[[#{cliente.contra}]]</label> <br/>
                                 <input type="text" class="form-control" id="contraseña" name="contraseña" th:field="*{contraseña}"
                                        placeholder="Contraseña"></br>
                                 </<div>
@@ -66,15 +67,19 @@
                                     </div>
 
 
-                                    
+
 
                                     </form>
 
                                 </div>
-                                <footer  th:replace="layout/plantilla 
-                                         :: footer"/> 
-                                </body>
-                                </html>
+                            </div>
+                    </div>
+                </div>
+                
+                <footer  th:replace="layout/plantilla 
+                         :: footer"/> 
+                </body>
+                </html>
 
 
 

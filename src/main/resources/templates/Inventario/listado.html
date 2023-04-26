@@ -3,13 +3,14 @@
         <title>Inventario</title> 
     </head>
     <header th:replace="layout/plantilla :: header"/>
-    <body>
+    <body style="background-image: url(https://img.freepik.com/foto-gratis/hamburguesa-explosiva-verduras-queso-derretido-sobre-fondo-negro-ia-generativa_157027-1734.jpg?w=1060&t=st=1682389875~exp=1682390475~hmac=a452746638c3a68eb4ac3766468b2d35b4f598e4a1c751c1b01e8eecb7f7445e) ;  height: 100%;">
+
 
 
         <div class="contenido, text-center"></br>
-            <h2>INVENTARIO DISPONIBLE</h2>
+            <h2 class="text-white">[[#{inventario.lista}]]</h2>
             </br>
-            
+
 
             <div class="container">
                 <div class="row">
@@ -22,17 +23,17 @@
 
                             <form method="POST" th:action="@{inventario/nuevo}" th:object="${inventario}">
 
-                                <table class="table table-bondered">
+                                <table class=" text-white table table-bondered">
 
 
                                     <thead>
                                         <tr>
 
-                                            <th scope="col">Nombre</th>
-                                            <th scope="col">Descripcion</th>
-                                            <th scope="col">Precio</th>       
-                                            <th scope="col">Activos</th>
-                                            <th scope="col">Acciones</th>
+                                            <th scope="col">[[#{inventario.nombre}]]</th>
+                                            <th scope="col">[[#{inventario.descripcion}]]</th>
+                                            <th scope="col">[[#{inventario.precio}]]</th>       
+                                            <th scope="col">[[#{inventario.activo}]]</th>
+                                            <th scope="col">[[#{plantilla.acciones}]]</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -40,9 +41,10 @@
                                             <td th:text="${item.nombre}"></td>
                                             <td th:text="${item.descripcion}"></td>
                                             <td th:text="${#numbers.formatDecimal(item.precio,3,2)}"></td>
+                                            <td th:text="${item.activo}"></td>
 
-                                            <td><a class="btn btn-light" th:href="@{/inventario/modificar/}+${item.idInventario}">Modificar</a></td>
-                                            <td><a class="btn btn-dark" th:href="@{/inventario/eliminar/}+${item.idInventario}">Eliminar</a></td>
+                                            <td><a class="btn btn-light" th:href="@{/inventario/modificar/}+${item.idInventario}">[[#{plantilla.modificar}]]</a></td>
+                                            <td><a class="btn btn-dark" th:href="@{/inventario/eliminar/}+${item.idInventario}">[[#{plantilla.eliminar}]]</a></td>
                                         </tr>
 
 
@@ -53,7 +55,7 @@
                                 </table>
 
                                 <div class="d-grid gap-2 col-6 mx-auto">
-                                    <a class="btn btn-primary" th:href="@{/inventario/nuevo}">Agregar Nuevo Inventario</a>
+                                    <a class="btn btn-primary" th:href="@{/inventario/nuevo}">[[#{plantilla.nuevo}]]</a>
 
                                 </div>
                                 <div class="col-3">

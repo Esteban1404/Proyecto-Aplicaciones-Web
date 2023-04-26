@@ -1,4 +1,4 @@
-
+                        
 package ProyectoNegocio.Controller;
 
 import ProyectoNegocio.service.InventarioService;
